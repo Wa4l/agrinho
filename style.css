@@ -1,0 +1,28 @@
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#visualizador-solo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #5d4037 0%, #2c1b18 100%);
+    margin: 20px auto;
+    border: 5px solid #388e3c;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 20px rgba(56, 142, 60, 0.2);
+}
+
+/* Classe que o JS vai ativar se o solo estiver "morrendo" */
+.solo-degradado {
+    border-color: #b71c1c !important;
+    background: #4e342e !important;
+    filter: grayscale(1);
+}

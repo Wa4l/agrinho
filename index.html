@@ -1,544 +1,602 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>AgroForte | BioSinfonia Sustentável</title>
-  <!-- Google Fonts: tipografia moderna e limpa -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (ícones sólidos) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Olho no Céu, Mão na Terra | Agro Forte & Futuro Sustentável</title>
+    <!-- Google Fonts: Modern, clean, professional -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Library for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background-color: #050b12;
-      font-family: 'Inter', sans-serif;
-      color: #e2f0f7;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FEFCF5;
+            color: #1C2E1F;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-    /* Visual inovador: fundo com grid fluido e leve ruído, efeito bioluminescente */
-    .bg-ecosystem {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 20% 30%, #0a1420, #02060c);
-      z-index: -2;
-    }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #E2E8DC;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2F6B2F;
+            border-radius: 10px;
+        }
 
-    .noise-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjciIG51bU9jdGF2ZXM9IjMiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjZikiIG9wYWNpdHk9IjAuMDgiLz48L3N2Zz4=');
-      background-repeat: repeat;
-      opacity: 0.25;
-      pointer-events: none;
-      z-index: -1;
-    }
+        /* Typography */
+        h1, h2, h3, .logo, .nav-links a {
+            font-family: 'Space Grotesk', monospace;
+        }
 
-    /* container principal */
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      position: relative;
-      z-index: 2;
-    }
+        /* Gradient background for hero */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #102A12 0%, #1F4A1F 60%, #2C6E2F 100%);
+            color: white;
+            overflow: hidden;
+        }
 
-    /* cabeçalho com glassmorphism futurista */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.6rem 0;
-      flex-wrap: wrap;
-      border-bottom: 1px solid rgba(72, 187, 120, 0.25);
-      backdrop-filter: blur(4px);
-    }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" opacity="0.08"><path fill="none" stroke="%23ffffff" stroke-width="1.5" d="M0,400 L1200,400 M300,0 L300,800 M600,0 L600,800 M900,0 L900,800 M0,200 L1200,200 M0,600 L1200,600"/><circle cx="200" cy="150" r="30" stroke="white" fill="none"/><circle cx="850" cy="620" r="45" stroke="white" fill="none"/><path d="M100 700 L150 650 L200 700" stroke="white" fill="none"/></svg>');
+            background-repeat: repeat;
+            pointer-events: none;
+        }
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #C0FFB0, #6EE7B7);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -0.5px;
-    }
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(16, 42, 18, 0.85);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+            padding: 0.8rem 2rem;
+        }
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(120deg, #E9F5A0, #C6F0A6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo span {
+            font-size: 1.2rem;
+            background: none;
+            color: #D9F0A3;
+            -webkit-background-clip: unset;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #F1F9E6;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover {
+            color: #D4F1A1;
+            border-bottom: 2px solid #B5E352;
+        }
+        .btn-outline-light {
+            border: 1.5px solid #B5E352;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            background: transparent;
+            transition: 0.2s;
+        }
+        .btn-outline-light:hover {
+            background: #B5E352;
+            color: #102A12 !important;
+            border-color: #B5E352;
+        }
 
-    .logo span {
-      font-weight: 500;
-      background: none;
-      color: #b3f0d0;
-      -webkit-background-clip: unset;
-    }
+        /* Hero Content */
+        .hero-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 10rem 2rem 7rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(181, 227, 82, 0.2);
+            backdrop-filter: blur(4px);
+            border-radius: 60px;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(181, 227, 82, 0.4);
+        }
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+            max-width: 800px;
+        }
+        .hero-gradient-text {
+            background: linear-gradient(to right, #F9F6C2, #CDFF8C);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 620px;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            color: #ECFADB;
+        }
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #B5E352;
+            color: #122F14;
+            padding: 0.9rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px -10px rgba(0,0,0,0.2);
+            background: #CAF576;
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 1.5px solid #B5E352;
+            color: #F1F9E6;
+            padding: 0.9rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-secondary:hover {
+            background: rgba(181, 227, 82, 0.2);
+            border-color: #D5FF96;
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      font-weight: 500;
-    }
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1F3C1F;
+            letter-spacing: -0.01em;
+        }
+        .section-sub {
+            font-size: 1.1rem;
+            color: #4A6741;
+            max-width: 700px;
+            margin-bottom: 3rem;
+            border-left: 3px solid #B5E352;
+            padding-left: 1rem;
+        }
 
-    .nav-links a {
-      text-decoration: none;
-      color: #c5e9f0;
-      transition: 0.2s;
-      font-size: 0.95rem;
-      letter-spacing: -0.2px;
-    }
+        /* Cards grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 40px -12px rgba(46, 87, 42, 0.15);
+            border-color: #C8E6B5;
+        }
+        .card-icon {
+            font-size: 2.5rem;
+            background: #EEF7E5;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            margin-bottom: 1.5rem;
+            color: #2F6B2F;
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        .card p {
+            color: #3F5340;
+            line-height: 1.5;
+        }
 
-    .nav-links a:hover {
-      color: #9cffc0;
-      text-shadow: 0 0 6px #2eff9e55;
-    }
+        /* Feature split layout */
+        .split-feature {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+            background: #F4F9EF;
+            border-radius: 3rem;
+            padding: 3rem;
+        }
+        .split-text {
+            flex: 1;
+        }
+        .split-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .split-text .highlight {
+            color: #3C8F3C;
+            font-weight: 700;
+        }
+        .split-img {
+            flex: 1;
+            text-align: center;
+        }
+        .split-img i {
+            font-size: 9rem;
+            color: #477A2E;
+            filter: drop-shadow(0 8px 12px rgba(0,0,0,0.1));
+        }
 
-    /* hero diferenciado: exoesqueleto natural + sensores */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-height: 90vh;
-      padding: 3rem 0 5rem 0;
-    }
+        /* Precision data stats */
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .stat-item {
+            background: #FFFFFFD9;
+            backdrop-filter: blur(4px);
+            border-radius: 2rem;
+            padding: 1.5rem;
+            text-align: center;
+            flex: 1;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            border: 1px solid #E0F0D3;
+        }
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #2C732C;
+        }
 
-    .hero-tag {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      background: rgba(110, 231, 183, 0.12);
-      display: inline-block;
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      width: fit-content;
-      backdrop-filter: blur(2px);
-      border: 0.5px solid #6ee7b755;
-      margin-bottom: 1.5rem;
-    }
+        /* Sustainability timeline / mosaic */
+        .sustain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+        }
+        .sustain-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            transition: 0.2s;
+            text-align: center;
+        }
+        .sustain-card i {
+            font-size: 2.2rem;
+            background: #EFF7E9;
+            padding: 12px;
+            border-radius: 50px;
+            color: #3A7640;
+        }
 
-    .hero h1 {
-      font-size: 4.2rem;
-      font-weight: 800;
-      line-height: 1.2;
-      max-width: 850px;
-      background: linear-gradient(145deg, #FFFFFF 20%, #9effcf 70%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 1.2rem;
-    }
+        /* CTA section */
+        .cta {
+            background: linear-gradient(115deg, #102A12 0%, #1F4822 100%);
+            color: white;
+            text-align: center;
+            border-radius: 3rem;
+            margin: 2rem auto;
+            padding: 4rem 2rem;
+        }
+        .cta h2 {
+            font-size: 2.2rem;
+        }
 
-    .hero-desc {
-      font-size: 1.25rem;
-      max-width: 600px;
-      color: #bfdee8;
-      margin-bottom: 2rem;
-    }
+        /* Footer */
+        footer {
+            background: #0C200E;
+            color: #CFE6C5;
+            padding: 3rem 2rem;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+        }
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
 
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: #1f553b;
-      border: 1px solid #79f2b0;
-      padding: 0.9rem 2.2rem;
-      border-radius: 60px;
-      font-weight: 600;
-      color: white;
-      transition: 0.2s;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      backdrop-filter: blur(4px);
-    }
-
-    .btn-primary:hover {
-      background: #2e7a57;
-      box-shadow: 0 0 18px #5effa64d;
-      border-color: #b6ffda;
-      transform: scale(1.02);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid #6ee7b7;
-      padding: 0.9rem 2rem;
-      border-radius: 60px;
-      font-weight: 500;
-      color: #ceffea;
-      transition: 0.2s;
-      text-decoration: none;
-    }
-
-    .btn-outline:hover {
-      background: #6ee7b722;
-      border-color: #a3ffd0;
-    }
-
-    /* grade de cards: conceitos sensoriais / produção x bioequilíbrio */
-    .section {
-      padding: 5rem 0;
-    }
-
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-      background: linear-gradient(120deg, #edfff0, #92f7c2);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .section-sub {
-      font-size: 1rem;
-      color: #9bbfc9;
-      margin-bottom: 3rem;
-      max-width: 680px;
-    }
-
-    .grid-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 2rem;
-    }
-
-    .card-sensor {
-      background: rgba(12, 25, 34, 0.65);
-      backdrop-filter: blur(12px);
-      border-radius: 2rem;
-      padding: 2rem;
-      border: 1px solid rgba(110, 231, 183, 0.25);
-      transition: all 0.3s ease;
-    }
-
-    .card-sensor:hover {
-      border-color: #65f7ae;
-      transform: translateY(-6px);
-      box-shadow: 0 20px 35px -15px rgba(0, 255, 170, 0.2);
-    }
-
-    .card-icon {
-      font-size: 2.5rem;
-      color: #6ee7b7;
-      margin-bottom: 1.25rem;
-    }
-
-    .card-sensor h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.8rem;
-    }
-
-    .card-sensor p {
-      color: #c2dce8;
-    }
-
-    /* tecnologia inovadora: sensor de eco do solo em destaque */
-    .tech-highlight {
-      display: flex;
-      flex-wrap: wrap;
-      background: linear-gradient(125deg, #0a1822, #031016);
-      border-radius: 3rem;
-      overflow: hidden;
-      margin: 2rem 0;
-      border: 1px solid #2f7b5e;
-    }
-
-    .tech-content {
-      flex: 1;
-      padding: 2.8rem;
-    }
-
-    .tech-content h3 {
-      font-size: 1.9rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .badge-eco {
-      background-color: #1f553b55;
-      border-radius: 30px;
-      padding: 0.3rem 1rem;
-      font-size: 0.8rem;
-      display: inline-block;
-      margin-bottom: 1rem;
-      border-left: 3px solid #6ee7b7;
-    }
-
-    .tech-content p {
-      margin: 1rem 0;
-      font-size: 1rem;
-    }
-
-    .tech-stats {
-      display: flex;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .stat {
-      text-align: left;
-    }
-
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #baffda;
-    }
-
-    /* carrossel de dados (futuro sustentavel) */
-    .metric-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      background: rgba(0, 25, 20, 0.5);
-      border-radius: 2rem;
-      padding: 2rem;
-      margin: 3rem 0;
-      gap: 1rem;
-    }
-
-    .metric-item {
-      text-align: center;
-      flex: 1;
-      min-width: 120px;
-    }
-
-    .metric-number {
-      font-size: 2.2rem;
-      font-weight: 800;
-      background: linear-gradient(145deg, #dcffec, #7bf0b5);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    /* seção de Produtividade Equilibrada */
-    .equilibrium-graph {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin: 2rem 0;
-    }
-
-    .graph-item {
-      flex: 1;
-      background: #07141e80;
-      border-radius: 1.5rem;
-      padding: 1.5rem;
-      text-align: center;
-      border: 1px solid #317a5e;
-    }
-
-    /* rodapé inovador */
-    footer {
-      border-top: 1px solid #1d5b4940;
-      padding: 2.5rem 0;
-      margin-top: 2rem;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.85rem;
-      color: #84b2bb;
-    }
-
-    @media (max-width: 780px) {
-      .container {
-        padding: 0 1.25rem;
-      }
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      .navbar {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      .nav-links {
-        gap: 1.2rem;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .tech-content {
-        padding: 1.8rem;
-      }
-    }
-
-    /* animação sutil de entrada */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(25px);
-      animation: fadeUp 0.7s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .delay-1 {
-      animation-delay: 0.1s;
-    }
-    .delay-2 {
-      animation-delay: 0.3s;
-    }
-  </style>
+        /* Responsive */
+        @media (max-width: 800px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="bg-ecosystem"></div>
-<div class="noise-overlay"></div>
 
-<div class="container">
-  <nav class="navbar">
-    <div class="logo">🌱 AGRO<span>FORTE</span> · BioSinfonia</div>
-    <div class="nav-links">
-      <a href="#">Ecossistema</a>
-      <a href="#">Tecnologia de Solo</a>
-      <a href="#">Carbono Neutro</a>
-      <a href="#">Inovação</a>
-    </div>
-  </nav>
-
-  <main>
-    <!-- hero com conceito de inteligência do solo -->
-    <div class="hero fade-up">
-      <div class="hero-tag"><i class="fas fa-leaf" style="margin-right: 8px;"></i> equilíbrio regenerativo</div>
-      <h1>Produção que escuta <br> a voz da terra.</h1>
-      <p class="hero-desc">Onde sensores quânticos e eco-acústica do solo orientam um agro forte, sem sacrificar o amanhã. Dados, natureza e tecnologia em simbiose.</p>
-      <div class="btn-group">
-        <a href="#" class="btn-primary"><i class="fas fa-charging-station"></i> Explorar BioHub</a>
-        <a href="#" class="btn-outline"><i class="fas fa-microphone-alt"></i> Escutar o solo</a>
-      </div>
-    </div>
-
-    <!-- Seção 1: sensores eco do solo / inovação fundadora  -->
-    <div class="section fade-up delay-1">
-      <h2 class="section-title">⚡ Agrorressonância: sensores de eco do solo</h2>
-      <p class="section-sub">Tecnologia que vai além do superficial — ondas acústicas de alta resolução e GPR bioinspirado revelam a vida subterrânea em tempo real.</p>
-      <div class="grid-cards">
-        <div class="card-sensor">
-          <div class="card-icon"><i class="fas fa-waveform"></i></div>
-          <h3>Eco-Sônico 4D</h3>
-          <p>Emissão de pulsos sónicos de baixa frequência analisando a porosidade, compactação e microbiologia ativa — mapeamento acústico contínuo via drones terrestres.</p>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="logo">🌱 Olho no Céu, <span>Mão na Terra</span></div>
+        <div class="nav-links">
+            <a href="#conceito">Conceito</a>
+            <a href="#tecnologia">Tecnologia</a>
+            <a href="#sustentabilidade">Sustentabilidade</a>
+            <a href="#impacto" class="btn-outline-light">Impacto Real</a>
         </div>
-        <div class="card-sensor">
-          <div class="card-icon"><i class="fas fa-seedling"></i></div>
-          <h3>Smart RootScan</h3>
-          <p>Radar de penetração (GPR) combinado com Machine Learning para modelar raízes em profundidade, prevendo estresse hídrico antes da manifestação foliar.</p>
+    </div>
+</nav>
+
+<header class="hero" id="home">
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+        <div class="hero-badge"><i class="fas fa-satellite-dish"></i> Agro 4.0 + Agricultura Regenerativa</div>
+        <h1>Do <span class="hero-gradient-text">espaço</span> para o <span class="hero-gradient-text">solo</span> — <br>O amanhã do agro é sustentável</h1>
+        <p>Unindo inteligência orbital, sensoriamento remoto e práticas ancestrais de manejo da terra. “Olho no Céu, Mão na Terra” revoluciona a produção agrícola com respeito ao planeta e alta produtividade.</p>
+        <div class="btn-group">
+            <a href="#conceito" class="btn-primary"><i class="fas fa-seedling"></i> Explorar jornada</a>
+            <a href="#tecnologia" class="btn-secondary"><i class="fas fa-microchip"></i> Soluções digitais</a>
         </div>
-        <div class="card-sensor">
-          <div class="card-icon"><i class="fas fa-chart-line"></i></div>
-          <h3>Biofluxo Quântico</h3>
-          <p>Medição de carbono ativo e ciclagem de nutrientes através da ressonância eletromagnética do solo — redução de insumos em 34% sem perda produtiva.</p>
+    </div>
+</header>
+
+<main>
+    <!-- Conceito / O que é -->
+    <section id="conceito">
+        <div class="container">
+            <div data-aos="fade-right">
+                <div class="section-title">🌾 O Conceito: Sinergia entre Céu e Terra</div>
+                <div class="section-sub">Agricultura de precisão aliada à sabedoria camponesa para um futuro carbono neutro.</div>
+            </div>
+            <div class="split-feature" data-aos="zoom-in-up">
+                <div class="split-text">
+                    <h2>Dados de satélite + <span class="highlight">Manejo regenerativo</span></h2>
+                    <p>Através de imagens de alta resolução, drones e IoT, monitoramos cada centímetro da lavoura: umidade do solo, nutrientes, pragas. Combinamos à técnicas como plantio direto, rotação de culturas e bioinsumos. Resultado: produtividade recorde, restauração ecológica e rentabilidade do agricultor.</p>
+                    <ul style="margin-top: 1rem; list-style: none; padding-left: 0;">
+                        <li><i class="fas fa-check-circle" style="color:#3C9A3C;"></i> Redução de insumos químicos em até 47%</li>
+                        <li><i class="fas fa-check-circle" style="color:#3C9A3C;"></i> Aumento de produtividade via monitoramento NDVI</li>
+                        <li><i class="fas fa-check-circle" style="color:#3C9A3C;"></i> Captura de carbono no solo + biodiversidade</li>
+                    </ul>
+                </div>
+                <div class="split-img">
+                    <i class="fas fa-satellite"></i>
+                    <i class="fas fa-hand-peace" style="margin-left: -30px; font-size: 7rem; color:#508D3A;"></i>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <!-- Destaque principal: sensor de eco do solo em robótica agrícola (eco 3D) -->
-    <div class="tech-highlight fade-up delay-2">
-      <div class="tech-content">
-        <div class="badge-eco"><i class="fas fa-microchip"></i>  Ground Penetrating Sonics · 2026</div>
-        <h3>Sensor de eco profundo <br> “TerraVox”</h3>
-        <p>Robôs agrícolas equipados com matriz de emissores acústicos & receptores de eco analisam camadas de 0 a 2 metros. Identificam compactação, estoque hídrico e até atividade de micorrizas. Os dados alimentam o sistema AgroForte BioNet, que reduz a irrigação em 28% enquanto eleva a produtividade por hectare.</p>
-        <div class="tech-stats">
-          <div class="stat"><div class="stat-number">+22%</div><div>produtividade sustentável</div></div>
-          <div class="stat"><div class="stat-number">-41%</div><div>lixiviação de nitrogênio</div></div>
+    <!-- Tecnologia & Inovação -->
+    <section id="tecnologia" style="background: #F9FBF5;">
+        <div class="container">
+            <div data-aos="fade-up">
+                <div class="section-title">🛰️ Inovação que transforma o campo</div>
+                <div class="section-sub">Plataforma digital “Olho no Céu” — IA, big data e sensoriamento remoto a serviço da sustentabilidade</div>
+            </div>
+            <div class="cards-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+                    <h3>Monitoramento orbital</h3>
+                    <p>Satélites Sentinel-2 e Landsat geram mapas de vigor vegetal (NDVI), alertas de estresse hídrico e previsão de colheita com acurácia >92%.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-drone"></i></div>
+                    <h3>Drones & sensores IoT</h3>
+                    <p>Drones autônomos capturam imagens multiespectrais e sensores no solo medem umidade, pH e temperatura em tempo real.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-brain"></i></div>
+                    <h3>IA para decisão local</h3>
+                    <p>Algoritmos recomendam insumos orgânicos, zoneamento de manejo e momentos ideais de plantio para cada talhão.</p>
+                </div>
+            </div>
+            <!-- stats provas sociais -->
+            <div class="stats-row" data-aos="fade-up">
+                <div class="stat-item"><div class="stat-number">+40%</div><div>economia de água</div></div>
+                <div class="stat-item"><div class="stat-number">-52%</div><div>uso de fertilizantes sintéticos</div></div>
+                <div class="stat-item"><div class="stat-number">63K ha</div><div>impactados no Brasil</div></div>
+            </div>
         </div>
-        <a href="#" style="color:#b2ffd0; margin-top: 1rem; display: inline-block;"><i class="fas fa-arrow-right"></i> conheça a frota autônoma</a>
-      </div>
-      <div style="flex: 0.4; background: linear-gradient(145deg, #0e452f, #02100c); min-height: 220px; display: flex; align-items: center; justify-content: center;">
-        <i class="fas fa-microphone-alt" style="font-size: 5rem; opacity: 0.7; color: #70f7bc;"></i>
-      </div>
+    </section>
+
+    <!-- Mão na Terra: Práticas Sustentáveis -->
+    <section id="sustentabilidade">
+        <div class="container">
+            <div data-aos="fade-right">
+                <div class="section-title">🤝 Mão na Terra: Raízes do futuro sustentável</div>
+                <div class="section-sub">Onde a tecnologia encontra a tradição agroecológica. Fortalecendo comunidades e restaurando ecossistemas.</div>
+            </div>
+            <div class="sustain-grid" data-aos="fade-up">
+                <div class="sustain-card"><i class="fas fa-tractor"></i><h3>Plantio Direto</h3><p>Palhada protege o solo, aumenta matéria orgânica e reduz erosão.</p></div>
+                <div class="sustain-card"><i class="fas fa-leaf"></i><h3>Crop-Livestock-Forest</h3><p>Integração lavoura-pecuária-floresta: mais renda e sequestro de carbono.</p></div>
+                <div class="sustain-card"><i class="fas fa-water"></i><h3>Captação de água da chuva</h3><p>Barraginhas e cisternas alimentadas por previsão climática via satélite.</p></div>
+                <div class="sustain-card"><i class="fas fa-hand-holding-heart"></i><h3>Bioinsumos locais</h3><p>Produção de microrganismos eficientes, reduzindo dependência externa.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agro Forte: depoimento simbólico / dados de futuro -->
+    <section style="background: #EDF5E6;">
+        <div class="container">
+            <div class="split-feature" style="background: #FFFFFF;" data-aos="flip-left">
+                <div class="split-img">
+                    <i class="fas fa-chart-line" style="font-size: 6rem; color:#2A6E2A;"></i>
+                    <i class="fas fa-seedling" style="font-size: 5rem; margin-left: 10px;"></i>
+                </div>
+                <div class="split-text">
+                    <h2>Agro forte com pegada <span class="highlight">positiva</span></h2>
+                    <p>O futuro da agricultura brasileira é regenerativo. Com o conceito "Olho no Céu, Mão na Terra" estamos construindo uma nova geração de fazendas inteligentes que produzem mais alimentos, restauram nascentes e geram créditos de carbono. O produtor rural torna-se protagonista da mitigação climática.</p>
+                    <a href="#" style="font-weight: 600; color: #256F25;">Saiba mais sobre casos reais →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impacto / Resultados reais - cards interativos -->
+    <section id="impacto">
+        <div class="container">
+            <div data-aos="fade-up">
+                <div class="section-title">📊 Impacto no campo: resultados que transformam</div>
+                <div class="section-sub">Em parceria com cooperativas e institutos de pesquisa, o programa já colhe frutos reais.</div>
+            </div>
+            <div class="cards-grid" data-aos="zoom-in">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-charging-station"></i></div>
+                    <h3>Energia + Carbono</h3>
+                    <p>Propriedades reduziram emissão de GEE em média 38% e geram créditos de carbono com certificação blockchain.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-chart-simple"></i></div>
+                    <h3>Produtividade recorde</h3>
+                    <p>Propriedade piloto na região do MATOPIBA aumentou produtividade da soja em 22% com redução de insumos.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-users"></i></div>
+                    <h3>Inclusão digital</h3>
+                    <p>+1.200 jovens agricultores capacitados em agricultura de precisão e sustentabilidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to action futurista -->
+    <div class="container">
+        <div class="cta" data-aos="flip-up">
+            <h2><i class="fas fa-earth-americas"></i> Faça parte da nova revolução verde</h2>
+            <p style="margin: 1rem auto; max-width: 600px;">Seja um agricultor conectado, um investidor no agro sustentável ou pesquisador. O futuro se constrói com tecnologia e respeito pela terra.</p>
+            <a href="#" class="btn-primary" style="background: white; color:#1F4A1F;">Quero integrar esse movimento →</a>
+        </div>
     </div>
+</main>
 
-    <!-- Métricas de futuro sustentável -->
-    <div class="metric-row">
-      <div class="metric-item"><div class="metric-number">18.4 M ha</div><div>manejo regenerativo com IA</div></div>
-      <div class="metric-item"><div class="metric-number">-47%</div><div>pegada hídrica (últimos 3 anos)</div></div>
-      <div class="metric-item"><div class="metric-number">760 kt</div><div>carbono sequestrado/ano</div></div>
-      <div class="metric-item"><div class="metric-number">94%</div><div>rastreabilidade blockchain</div></div>
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="logo" style="color: #DCF5C3; font-size: 1.6rem;">🌱 Olho no Céu, Mão na Terra</div>
+                <p style="margin-top: 0.8rem; max-width: 250px;">Iniciativa nacional para um agro forte, inteligente e amigo do clima.</p>
+            </div>
+            <div>
+                <h4>Contato</h4>
+                <p><i class="fas fa-envelope"></i> contato@agrocieloeterra.org</p>
+                <p><i class="fas fa-phone-alt"></i> +55 (11) 98000-1234</p>
+            </div>
+            <div>
+                <h4>Links</h4>
+                <p><a href="#" style="color: #C3E3AE; text-decoration: none;">Política de Sustentabilidade</a></p>
+                <p><a href="#" style="color: #C3E3AE; text-decoration: none;">Relatório de impacto 2025</a></p>
+            </div>
+        </div>
+        <hr style="margin: 2rem 0; border-color: #2D4A2A;">
+        <p style="text-align: center; font-size: 0.8rem;">© 2025 Olho no Céu, Mão na Terra — Transformando o agro com inovação regenerativa.</p>
     </div>
+</footer>
 
-    <!-- Novo eixo: agro forte + meio ambiente sem conflito (equilíbrio) -->
-    <div class="section">
-      <h2 class="section-title">🌾 Equilíbrio sistêmico: produção & bioesfera</h2>
-      <p class="section-sub">O futuro não precisa escolher entre rendimento e floresta — integração lavoura-pecuária-floresta (ILPF) + sensores ecoacústicos certificam a sinergia.</p>
-      <div class="equilibrium-graph">
-        <div class="graph-item"><i class="fas fa-chart-simple" style="font-size: 2rem; color:#7affb9;"></i><h3 style="margin: 0.8rem 0;">+165%</h3><p>Biomassa aérea em consórcios inteligentes monitorados por eco-radares</p></div>
-        <div class="graph-item"><i class="fas fa-bug" style="font-size: 2rem; color:#7affb9;"></i><h3 style="margin: 0.8rem 0;">Controle biológico</h3><p>Redução de defensivos via alerta precoce acústico (pragas subterrâneas detectadas)</p></div>
-        <div class="graph-item"><i class="fas fa-tachometer-alt" style="font-size: 2rem; color:#7affb9;"></i><h3 style="margin: 0.8rem 0;">Neutro em emissões</h3><p>Metano capturado e convertido em bioinsumos — economia circular 100%</p></div>
-      </div>
-    </div>
-
-    <!-- seção extra: carrosel de inovações (grid com textos menores) -->
-    <div class="section">
-      <h2 class="section-title">🧬 Painel de inovações ESG</h2>
-      <p class="section-sub">Agro Forte: aliança entre tecnologia de precisão e restauração ambiental</p>
-      <div class="grid-cards">
-        <div class="card-sensor"><i class="fas fa-dove"></i><h3>Corredores ecológicos</h3><p>Mapeamento por sensoriamento acústico para regeneração de fauna nativa em zonas de cultivo intensivo.</p></div>
-        <div class="card-sensor"><i class="fas fa-water"></i><h3>Aquíferos recarregados</h3><p>Monitoramento da recarga hídrica via eco do solo e infiltração em tempo real.</p></div>
-        <div class="card-sensor"><i class="fas fa-robot"></i><h3>Frotas autônomas regenerativas</h3><p>Tratores elétricos com sensores de eco de solo, plantio direto e aplicação localizada de biofertilizantes.</p></div>
-      </div>
-    </div>
-
-    <!-- chamada final -->
-    <div style="background: linear-gradient(105deg, #0a1822, #04221b); border-radius: 2rem; padding: 3rem 2rem; margin: 2rem 0; text-align: center;">
-      <i class="fas fa-hand-holding-heart" style="font-size: 3rem; color: #8effc2;"></i>
-      <h2 style="font-size: 2rem; margin: 1rem 0;">Produzir forte, regenerar sempre.</h2>
-      <p style="max-width: 600px; margin: 0 auto 2rem auto;">O sensor EcoSolo é apenas o começo. Junte-se à revolução do agro que dialoga com a terra e colhe um amanhã possível.</p>
-      <a href="#" class="btn-primary" style="background: #157347;"><i class="fas fa-seedling"></i> Quero ser AgroForte sustentável</a>
-    </div>
-  </main>
-
-  <footer>
-    <div>© 2026 AgroForte · BioSinfonia — equilíbrio entre produção e meio ambiente</div>
-    <div><i class="fas fa-leaf"></i> Dados de eco-acústica & sensoriamento regenerativo</div>
-  </footer>
-</div>
-
-<!-- pequeno script para efeito de scroll suave e interação mínima -->
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if(href === "#" || href === "") return;
-      const target = document.querySelector(href);
-      if(target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
+    // Initialize AOS animations
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 60,
     });
-  });
-  // adicionar classe de visibilidade para animação quando os elementos entrarem na tela (opcional)
-  const faders = document.querySelectorAll('.fade-up');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0px)';
-        observer.unobserve(entry.target);
-      }
+    // Navbar background change on scroll
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 30) {
+            navbar.style.background = "rgba(8, 28, 10, 0.95)";
+            navbar.style.backdropFilter = "blur(16px)";
+        } else {
+            navbar.style.background = "rgba(16, 42, 18, 0.85)";
+        }
     });
-  }, { threshold: 0.1 });
-  faders.forEach(el => observer.observe(el));
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === "#" || targetId === "") return;
+            const target = document.querySelector(targetId);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
 </script>
 </body>
 </html>

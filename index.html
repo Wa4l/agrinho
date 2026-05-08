@@ -483,28 +483,174 @@
             z-index: 1;
         }
 
-        /* Responsivo */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+        /* === RESPONSIVIDADE MELHORADA PARA CELULAR === */
+        /* Tablets e telas menores que 900px */
+        @media (max-width: 900px) {
             .nav-links {
                 gap: 1rem;
-                font-size: 0.9rem;
             }
-            .navbar {
-                padding: 0.8rem 1rem;
+            .hero h1 {
+                font-size: 3rem;
             }
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             .split-feature {
                 padding: 2rem;
                 gap: 2rem;
             }
+            .split-text h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Celular (até 768px) */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+            .nav-links {
+                gap: 0.8rem;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
+            .nav-links a {
+                font-size: 0.85rem;
+                padding: 0.3rem 0;
+            }
+            .btn-outline-light {
+                padding: 0.3rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .btn-primary, .btn-secondary {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            .section-title {
+                font-size: 1.9rem;
+            }
+            .section-sub {
+                font-size: 1rem;
+                padding-left: 1rem;
+            }
+            .split-feature {
+                flex-direction: column;
+                padding: 1.5rem;
+                text-align: center;
+            }
+            .split-text ul {
+                text-align: left;
+                display: inline-block;
+                margin: 0 auto;
+            }
             .split-image {
                 min-height: 250px;
+                width: 100%;
             }
+            .cards-grid, .sustain-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-row {
+                flex-direction: column;
+            }
+            .stat-item {
+                min-width: auto;
+            }
+            .cta {
+                padding: 3rem 1.5rem;
+            }
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+            .cta p {
+                font-size: 1rem;
+            }
+            .footer-grid {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            .footer-grid div {
+                text-align: center;
+            }
+            .footer-grid p {
+                margin: 0 auto;
+            }
+            section {
+                padding: 4rem 1.2rem;
+            }
+            .hero-content {
+                padding: 8rem 1.2rem 5rem;
+            }
+            .container {
+                padding: 0;
+            }
+            .card-image {
+                height: 180px;
+            }
+            .sustain-card img {
+                height: 160px;
+            }
+        }
+
+        /* Celulares muito pequenos (até 480px) */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.2rem;
+            }
+            .logo span {
+                font-size: 0.8rem;
+            }
+            .nav-links {
+                gap: 0.5rem;
+            }
+            .nav-links a {
+                font-size: 0.7rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero-badge {
+                font-size: 0.7rem;
+                padding: 0.3rem 1rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .split-text h2 {
+                font-size: 1.4rem;
+            }
+            .stat-number {
+                font-size: 2rem;
+            }
+            .btn-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .btn-group a {
+                text-align: center;
+                justify-content: center;
+            }
+            .cta h2 {
+                font-size: 1.5rem;
+            }
+            .card h3 {
+                font-size: 1.2rem;
+            }
+            .sustain-card h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Ajuste para evitar overflow de imagens em telas muito estreitas */
+        img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
